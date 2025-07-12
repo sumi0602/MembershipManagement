@@ -47,3 +47,14 @@ cp .env.example .env
 
 # 4. Run the server
 npm start
+
+
+## 📬 Postman Collection
+
+You can test the API using the Postman collection included here:  
+👉 [Download Collection](./postman/MembershipManagement.postman_collection.json)
+
+To use:
+1. Open Postman
+2. Click "Import"
+3. Select this file
