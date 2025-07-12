@@ -1,0 +1,346 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MembershipApis",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "paths": {
+    "/api/members": {
+      "get": {
+        "summary": "List Member",
+        "tags": [
+          "List Member"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "summary": "Register",
+        "tags": [
+          "Register"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "firstName": "james",
+                "lastName": "Deen",
+                "email": "james.deen@example.com",
+                "phone": "9876543210",
+                "dob": "1990-01-01",
+                "membershipType": "VIP",
+                "membershipStart": "2025-07-10",
+                "membershipEnd": "2026-07-10",
+                "zone": "North",
+                "paymentAmount": 500
+              },
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/members/6870d1f2602996b56bb4bb9d/qrcode": {
+      "get": {
+        "summary": "Qrcode",
+        "tags": [
+          "Qrcode"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/members/6870d1f2602996b56bb4bb9d": {
+      "get": {
+        "summary": "Single",
+        "tags": [
+          "Single"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "firstName": "John",
+                "lastName": "Doe",
+                "email": "john.doe@example.com",
+                "phone": "9876543210",
+                "dob": "1990-01-01",
+                "membershipType": "VIP",
+                "membershipStart": "2025-07-10",
+                "membershipEnd": "2026-07-10",
+                "zone": "North"
+              },
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete",
+        "tags": [
+          "Delete"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "MemberAttendance",
+        "tags": [
+          "MemberAttendance"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/events/6871534fcfe618be73973206/payment": {
+      "post": {
+        "summary": "ListPaymentEvent",
+        "tags": [
+          "ListPaymentEvent"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/events": {
+      "get": {
+        "summary": "ListEvents",
+        "tags": [
+          "ListEvents"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "firstName": "John",
+                "lastName": "Doe",
+                "email": "john.doe@example.com",
+                "phone": "9876543210",
+                "dob": "1990-01-01",
+                "membershipType": "VIP",
+                "membershipStart": "2025-07-10",
+                "membershipEnd": "2026-07-10",
+                "zone": "North"
+              },
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Register",
+        "tags": [
+          "Register"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/events/6870a2e202422cd561d5c892": {
+      "get": {
+        "summary": "Single",
+        "tags": [
+          "Single"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Login",
+        "tags": [
+          "Login"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "email": "test@example.com",
+                "password": "Test@1234"
+              },
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments": {
+      "post": {
+        "summary": "ProcessPayment",
+        "tags": [
+          "ProcessPayment"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "eventId": "6871534fcfe618be73973206",
+                "memberId": "687143566bf8b86f7354ce3b",
+                "ticketType": "VIP",
+                "paymentMethod": "razorpay"
+              },
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/event/6871534fcfe618be73973206": {
+      "get": {
+        "summary": "Event",
+        "tags": [
+          "Event"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/reports/event/6871534fcfe618be73973206": {
+      "get": {
+        "summary": "Event Attendance",
+        "tags": [
+          "Event Attendance"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "Register",
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "firstName": "John",
+                "lastName": "Doe",
+                "email": "john.doe@example.com",
+                "password": "Test@1234",
+                "role": "member"
+              },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "admin",
+                      "member"
+                    ]
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "email",
+                  "password",
+                  "role"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User registered successfully"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

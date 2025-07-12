@@ -1,0 +1,44 @@
+const express = require("express");
+const router = express.Router();
+const UserController = require("../controllers/UserController");
+const authMiddleware = require("../middlewares/authMiddleware");
+const adminMiddleware = require("../middlewares/adminMiddleware");
+
+// Public routes
+router.post("/register", UserController.register);
+router.post("/login", UserController.login);
+router.post("/forgot-password", UserController.forgotPassword);
+router.post("/reset-password", UserController.resetPassword);
+router.post("/verify-email", UserController.verifyEmail);
+
+// Authenticated routes
+router.get("/me", authMiddleware, UserController.getCurrentUser);
+router.put("/me", authMiddleware, UserController.updateUser);
+router.put(
+  "/me/change-password",
+  authMiddleware,
+  UserController.changePassword
+);
+router.post(
+  "/me/resend-verification",
+  authMiddleware,
+  UserController.resendVerificationEmail
+);
+
+// Admin-only routes
+router.get("/", authMiddleware, adminMiddleware, UserController.getAllUsers);
+router.get("/:id", authMiddleware, adminMiddleware, UserController.getUserById);
+router.put(
+  "/:id/role",
+  authMiddleware,
+  adminMiddleware,
+  UserController.updateUserRole
+);
+router.delete(
+  "/:id",
+  authMiddleware,
+  adminMiddleware,
+  UserController.deleteUser
+);
+
+module.exports = router;
